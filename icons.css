@@ -1,0 +1,35 @@
+.pencil-icon {
+	background-image: url("icons/pencil.png");
+}
+
+.selection-icon {
+	background-image: url("icons/selection.png");
+}
+
+.grid-icon {
+	background-image: url("icons/grid.png");
+}
+
+.undo-icon {
+	background-image: url("icons/undo.png");
+}
+
+.redo-icon {
+	background-image: url("icons/redo.png");
+}
+
+.back-icon {
+	background-image: url("icons/back.png");
+}
+
+.forw-icon {
+	background-image: url("icons/forw.png");
+}
+
+.play-icon {
+	background-image: url("icons/play.png");
+}
+
+.record-icon {
+	background-image: url("icons/record.png");
+}
