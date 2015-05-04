@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
     };
     
     var tab_clicked = function (tab_id) {
-        log_output("You clicked the tab " + tab_id + " (begin at 0)");
+        log_output("You clicked the tab " + tab_id);
     };
     
     var slider_change = function (value) {
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     
     WUI_Dialog.create("demo_right_dialog", {    
-        title: "",
+        title: "halign: \"right\"",
         width: "20%",
         height: "25%",
         halign: "right",
