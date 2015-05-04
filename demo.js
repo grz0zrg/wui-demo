@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     var demo_centered_dialog = WUI_Dialog.create("demo_centered_dialog", {    
         title: "<span style=\"color: gold;\">Drag me around!</div>",
-        width: "35%",
+        width: "500px",
         height: "500px",
         halign: "center",
         valign: "center",
@@ -206,7 +206,9 @@ document.addEventListener("DOMContentLoaded", function() {
             
         title: "Vertical slider",
         
-        title_min_width: 100
+        title_min_width: 100,
+            
+        on_change: slider_change
     });
     
     WUI_ToolBar.create( "demo_top_toolbar", {  
