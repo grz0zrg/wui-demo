@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
         halign: "right",
         valign: "center",
         closable: false,
+        draggable: true,
         minimizable: true
     });
     
