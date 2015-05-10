@@ -33,6 +33,10 @@ document.addEventListener("DOMContentLoaded", function() {
         log_output("Toolbar item clicked!");
     };
     
+    var toolbar_dd_item_click = function () {
+    	log_output("Toolbar dropdown item clicked!");
+    };
+    
     var dropdown_item_selected = function (item_index) {
         log_output("Dropdown item " + item_index + " selected");
     };
@@ -45,9 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
         valign: "center",
         closable: false,
         draggable: true,
-        minimizable: true,
-        resizable: true,
-        resizable: true
+        minimizable: true
     });
     
     WUI_Dialog.create("demo_right_dialog", {    
@@ -68,8 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
         halign: "center",
         valign: "center",
         minimizable: true,
-        draggable: true,
-        resizable: true
+        draggable: true
     });
     
     WUI_Dialog.create("demo_bottom_dialog", {    
@@ -87,8 +88,7 @@ document.addEventListener("DOMContentLoaded", function() {
         minimizable: true,
         width: "90%",
         height: "280px",
-        top: "16px",
-        resizable: true
+        top: "16px"
     });
     
     WUI_Dialog.create("demo_integrated_dialog_2", {    
@@ -98,8 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
         width: "90%",
         height: "100px",
         top: "32px",
-        draggable: true,
-        resizable: true
+        draggable: true
     });
     
     WUI_Tabs.create("demo_tabs", {
@@ -241,7 +240,15 @@ document.addEventListener("DOMContentLoaded", function() {
     
     WUI_ToolBar.create( "demo_text_toolbar", {  
         icons_group: [
-            { icon: "pencil-icon", type: "toggle", toggle_group: 0, toggle_state: false, onClick: toolbar_item_toggle, tooltip: "Toggle me!" }
+            {
+            	icon: "pencil-icon",
+            	text: "Menu",
+            	type: "dropdown",
+            	items: [
+       				{ title: "First item",  on_click: toolbar_dd_item_click },
+       				{ title: "Second item", on_click: toolbar_dd_item_click },
+       				{ title: "Third item",  on_click: toolbar_dd_item_click }],
+       			tooltip: "Click me!" }
         ],
         text_group: [
             { text: "Textual", onClick: toolbar_item_click, tooltip: "Click me!" },

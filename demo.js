@@ -33,6 +33,10 @@ document.addEventListener("DOMContentLoaded", function() {
         log_output("Toolbar item clicked!");
     };
     
+    var toolbar_dd_item_click = function () {
+    	log_output("Toolbar dropdown item clicked!");
+    };
+
     var dropdown_item_selected = function (item_index) {
         log_output("Dropdown item " + item_index + " selected");
     };
@@ -214,19 +218,19 @@ document.addEventListener("DOMContentLoaded", function() {
     
     WUI_ToolBar.create( "demo_top_toolbar", {  
         first_group:    [
-            { icon: "pencil-icon", type: "toggle", toggle_group: 0, toggle_state: true, onClick: toolbar_item_toggle, tooltip: "Toggle me!" },
-            { icon: "selection-icon", type: "toggle", toggle_group: 0, onClick: toolbar_item_toggle, tooltip: "Toggle me!" },
-            { icon: "grid-icon", type: "toggle", toggle_group: 0, onClick: toolbar_item_toggle, tooltip: "Toggle me!" }
+            { icon: "pencil-icon", type: "toggle", toggle_group: 0, toggle_state: true, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
+            { icon: "selection-icon", type: "toggle", toggle_group: 0, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
+            { icon: "grid-icon", type: "toggle", toggle_group: 0, on_click: toolbar_item_toggle, tooltip: "Toggle me!" }
         ],
         second_group:    [
-            { icon: "undo-icon", onClick: toolbar_item_click, tooltip: "Click me!" },
-            { icon: "redo-icon", onClick: toolbar_item_click, tooltip: "Click me!" }
+            { icon: "undo-icon", on_click: toolbar_item_click, tooltip: "Click me!" },
+            { icon: "redo-icon", on_click: toolbar_item_click, tooltip: "Click me!" }
         ],
         third_group:    [
-            { icon: "back-icon", onClick: toolbar_item_click, tooltip: "Click me!" },
-            { icon: "forw-icon", onClick: toolbar_item_click, tooltip: "Click me!" },
-            { icon: "play-icon", type: "toggle", onClick: toolbar_item_toggle, tooltip: "Toggle me!" },
-            { icon: "record-icon", type: "toggle", onClick: toolbar_item_toggle, tooltip: "Toggle me!" }
+            { icon: "back-icon", on_click: toolbar_item_click, tooltip: "Click me!" },
+            { icon: "forw-icon", on_click: toolbar_item_click, tooltip: "Click me!" },
+            { icon: "play-icon", type: "toggle", on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
+            { icon: "record-icon", type: "toggle", on_click: toolbar_item_toggle, tooltip: "Toggle me!" }
         ]
         }, {
             allow_groups_minimize: true,
@@ -236,12 +240,20 @@ document.addEventListener("DOMContentLoaded", function() {
     
     WUI_ToolBar.create( "demo_text_toolbar", {  
         icons_group: [
-            { icon: "pencil-icon", type: "toggle", toggle_group: 0, toggle_state: false, onClick: toolbar_item_toggle, tooltip: "Toggle me!" }
+            {
+            	icon: "pencil-icon",
+            	text: "Menu",
+            	type: "dropdown",
+            	items: [
+       				{ title: "First item",  on_click: toolbar_dd_item_click },
+       				{ title: "Second item", on_click: toolbar_dd_item_click },
+       				{ title: "Third item",  on_click: toolbar_dd_item_click }],
+       			tooltip: "Click me!" }
         ],
         text_group: [
-            { text: "Textual", onClick: toolbar_item_click, tooltip: "Click me!" },
-            { text: "Toolbar", type: "toggle", onClick: toolbar_item_toggle, tooltip: "Toggle me!" },
-            { text: "Group", type: "toggle", onClick: toolbar_item_toggle, tooltip: "Toggle me!" }
+            { text: "Textual", on_click: toolbar_item_click, tooltip: "Click me!" },
+            { text: "Toolbar", type: "toggle", on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
+            { text: "Group", type: "toggle", on_click: toolbar_item_toggle, tooltip: "Toggle me!" }
         ]
         }, {
             icon_width: 32,
@@ -250,13 +262,13 @@ document.addEventListener("DOMContentLoaded", function() {
     
     WUI_ToolBar.create( "demo_vertical_toolbar", {  
         first_group:    [
-            { icon: "pencil-icon", type: "toggle", toggle_group: 0, toggle_state: true, onClick: toolbar_item_toggle, tooltip: "Toggle me!" },
-            { icon: "selection-icon", type: "toggle", toggle_group: 0, onClick: toolbar_item_toggle, tooltip: "Toggle me!" },
-            { icon: "grid-icon", type: "toggle", toggle_group: 0, onClick: toolbar_item_toggle, tooltip: "Toggle me!" }
+            { icon: "pencil-icon", type: "toggle", toggle_group: 0, toggle_state: true, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
+            { icon: "selection-icon", type: "toggle", toggle_group: 0, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
+            { icon: "grid-icon", type: "toggle", toggle_group: 0, on_click: toolbar_item_toggle, tooltip: "Toggle me!" }
         ],
         second_group:    [
-            { icon: "undo-icon", onClick: toolbar_item_click, tooltip: "Click me!" },
-            { icon: "redo-icon", onClick: toolbar_item_click, tooltip: "Click me!" }
+            { icon: "undo-icon", on_click: toolbar_item_click, tooltip: "Click me!" },
+            { icon: "redo-icon", on_click: toolbar_item_click, tooltip: "Click me!" }
         ]
         }, {
             icon_width: 32,
@@ -267,7 +279,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     WUI_ToolBar.create( "demo_simple_toolbar", {  
         first_group:    [
-            { text: "Open center dialog (if closed)", onClick: function () { WUI_Dialog.open(demo_centered_dialog); }, tooltip: "Reopen dialog!" }
+            { text: "Open center dialog (if closed)", on_click: function () { WUI_Dialog.open(demo_centered_dialog); }, tooltip: "Reopen dialog!" }
         ]
         });
 });
