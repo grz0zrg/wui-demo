@@ -256,6 +256,9 @@ document.addEventListener("DOMContentLoaded", function() {
             { text: "Group", type: "toggle", on_click: toolbar_item_toggle, tooltip: "Toggle me!" }
         ]
         }, {
+            item_width: 38,
+            item_height: 32,
+
             icon_width: 32,
             icon_height: 32
     });
