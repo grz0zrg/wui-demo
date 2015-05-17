@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
         draggable: true
     });
     
-    var demo_modal_dialog = WUI_Dialog.create("demo_modal_dialog", {
+    var demo_modal_dialog = WUI_Dialog.create("demo_modal_dialog", {    
         title: "Modal dialog!",
         width: "400px",
         height: "300px",
@@ -81,12 +81,12 @@ document.addEventListener("DOMContentLoaded", function() {
         valign: "center",
         draggable: true,
         closable: true,
-
+        
         modal: true,
-
+        
         open: false
     });
-
+    
     WUI_Dialog.create("demo_bottom_dialog", {    
         title: "closable: false, draggable: false, minimizable: false",
         width: "50%",
@@ -301,7 +301,7 @@ document.addEventListener("DOMContentLoaded", function() {
         ]
         }, {
         	item_width: 250,
-
+        
         	vertical: true
         });
 });
