@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     
     WUI_Dialog.create("demo_integrated_dialog_2", {    
-        title: "Drag me around or resize me!",
+        title: "Drag me around!",
         closable: false,
         minimizable: true,
         width: "90%",
