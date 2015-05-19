@@ -8,9 +8,9 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 
         <!-- WUI -->
-        <link rel="stylesheet" type="text/css" href="wui/wui.min.css"/>
+        <link rel="stylesheet" type="text/css" href="wui/wui.css"/>
         
-        <script type="text/javascript" src="wui/wui.min.js" defer></script>
+        <script type="text/javascript" src="wui/wui.js" defer></script>
         
         <!-- Demo -->
         <link rel="stylesheet" type="text/css" href="icons.css"/>
@@ -24,7 +24,7 @@
         <div id="demo_top_toolbar"></div>
         
         <div id="demo_modal_dialog"><div style="padding-top: 8px;">Content...</div></div>
-        
+
         <div id="demo_centered_dialog">
             <div id="demo_tabs">
                 <div>
@@ -63,10 +63,10 @@
                             Try the mouse wheel on any bars/hooks!
                             <br/>
                             Double clicking on the bar/hook reset the slider.
-                            <div id="demo_slider" style="width: 85%; margin: 8px auto;"></div>
-                            <div id="demo_slider_negative" style="width: 85%; margin: 8px auto;"></div>
-                            <div id="demo_slider_top_text" style="width: 80%; margin: 8px auto;"></div>
-                            <div id="demo_vertical_slider" style="width: 25%; margin: 8px auto;"></div>
+                            <div id="demo_slider" style="width: 400px; margin: 8px auto;"></div>
+                            <div id="demo_slider_negative" style="width: 400px; margin: 8px auto;"></div>
+                            <div id="demo_slider_top_text" style="width: 400px; margin: 8px auto;"></div>
+                            <div id="demo_vertical_slider" style="width: 120px; margin: 8px auto;"></div>
                         </div>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
         </div>
         
         <div id="demo_left_dialog">
-            <div id="demo_widget_output" style="color: yellow; font-size: 9pt; text-align: center; overflow: auto;"></div>
+            <div id="demo_widget_output" style="color: yellow; font-size: 9pt; text-align: center; overflow: auto; line-height: 14pt;"></div>
         </div>
         
         <div id="demo_right_dialog">
