@@ -49,7 +49,8 @@ document.addEventListener("DOMContentLoaded", function() {
         valign: "center",
         closable: false,
         draggable: true,
-        minimizable: true
+        minimizable: true,
+        resizable: true
     });
     
     WUI_Dialog.create("demo_right_dialog", {    
@@ -64,13 +65,15 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     
     var demo_centered_dialog = WUI_Dialog.create("demo_centered_dialog", {    
-        title: "<span style=\"color: gold;\">Drag me around!</div>",
+        title: "<span style=\"color: gold;\">Drag me around or resize me!</div>",
         width: "500px",
         height: "500px",
         halign: "center",
         valign: "center",
         minimizable: true,
-        draggable: true
+        draggable: true,
+        resizable: true,
+        keep_align_when_resized: true
     });
     
     var demo_modal_dialog = WUI_Dialog.create("demo_modal_dialog", {
@@ -106,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     
     WUI_Dialog.create("demo_integrated_dialog_2", {    
-        title: "Drag me around!",
+        title: "Drag me around or resize me!",
         closable: false,
         minimizable: true,
         width: "90%",
