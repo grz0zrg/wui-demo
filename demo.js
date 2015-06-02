@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function() {
     
     var tab_clicked = function (tab_id) {
         log_output("You clicked the tab " + tab_id);
+
+        WUI_Dialog.setStatusBarContent("demo_centered_dialog", "You clicked the tab " + tab_id);
     };
     
     var slider_change = function (value) {
@@ -50,7 +52,8 @@ document.addEventListener("DOMContentLoaded", function() {
         closable: false,
         draggable: true,
         minimizable: true,
-        resizable: true
+        resizable: true,
+        status_bar: true
     });
     
     WUI_Dialog.create("demo_right_dialog", {    
@@ -67,13 +70,17 @@ document.addEventListener("DOMContentLoaded", function() {
     var demo_centered_dialog = WUI_Dialog.create("demo_centered_dialog", {    
         title: "<span style=\"color: gold;\">Drag me around or resize me!</div>",
         width: "500px",
-        height: "500px",
+        height: "525px",
         halign: "center",
         valign: "center",
         minimizable: true,
         draggable: true,
         resizable: true,
         detachable: true,
+        status_bar: true,
+
+        status_bar_content: '<div style="font-family: Monospace; font-size: 10px; color: lightgrey; position: absolute; margin-left: 8px;">---</div><span style="font-family: Monospace; font-size: 10px; color: lightgrey;">Status bar.</span>',
+
         keep_align_when_resized: true
     });
     
