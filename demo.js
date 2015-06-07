@@ -23,6 +23,10 @@ document.addEventListener("DOMContentLoaded", function() {
         WUI_Dialog.setStatusBarContent("demo_centered_dialog", "You clicked the tab " + tab_id);
     };
     
+    var circular_menu_item_click = function () {
+    	log_output("Circular menu item clicked!");
+    };
+
     var slider_change = function (value) {
         log_output("Slider value change: " + value);
     };
@@ -357,4 +361,34 @@ document.addEventListener("DOMContentLoaded", function() {
 		        { text: "Open a modal dialog", on_click: function () { WUI_Dialog.open(demo_modal_dialog); }, tooltip: "Open a modal dialog" }
 		    ]
         });
+
+    var circular_menu_items = [
+                                    { icon: "pencil-icon",    tooltip: "first button",  on_click: circular_menu_item_click },
+                                    { icon: "undo-icon",      tooltip: "second button", on_click: circular_menu_item_click },
+                                    { icon: "selection-icon", tooltip: "third button",  on_click: circular_menu_item_click },
+                                    { icon: "redo-icon",      tooltip: "fourth button", on_click: circular_menu_item_click }
+                              ];
+
+    document.getElementById("circular_menu_btn").addEventListener("click", function (ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
+
+        WUI_CircularMenu.create({
+                                    element: ev.target,
+
+									ry: 32
+                                }, circular_menu_items);
+    });
+
+    document.addEventListener("contextmenu", function (ev) {
+        ev.preventDefault();
+
+        WUI_CircularMenu.create({
+                                    x: ev.pageX,
+                                    y: ev.pageY,
+
+                                    rx: 34,
+                                    ry: 34
+                                }, circular_menu_items);
+    });
 });
