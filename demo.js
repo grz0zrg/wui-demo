@@ -1,6 +1,6 @@
 /* jslint browser: true */
 /* jshint globalstrict: false */
-/* global WUI_ToolBar, WUI_DropDown, WUI_RangeSlider, WUI_Tabs, WUI_Dialog */
+/* global WUI_ToolBar, WUI_DropDown, WUI_RangeSlider, WUI_Tabs, WUI_Dialog, WUI_CircularMenu */
 
 document.addEventListener("DOMContentLoaded", function() {
     "use strict";
@@ -47,6 +47,32 @@ document.addEventListener("DOMContentLoaded", function() {
         log_output("Dropdown item " + item_index + " selected");
     };
     
+    var circular_menu_items = [
+        { icon: "pencil-icon",    tooltip: "first button",  on_click: circular_menu_item_click },
+        { icon: "undo-icon",      tooltip: "second button", on_click: circular_menu_item_click },
+        { icon: "selection-icon", tooltip: "third button",  on_click: circular_menu_item_click },
+        { icon: "redo-icon",      tooltip: "fourth button", on_click: circular_menu_item_click }
+    ];
+
+    // make the circular menu also work when the dialog is detached
+    var bind_contextmenu = function (win) {
+        win.document.addEventListener("contextmenu", function (ev) {
+            ev.preventDefault();
+
+            WUI_CircularMenu.create({
+                                        x: ev.pageX,
+                                        y: ev.pageY,
+
+                                        rx: 34,
+                                        ry: 34,
+
+                                        window: win
+                                    }, circular_menu_items);
+        });
+    };
+
+    bind_contextmenu(window);
+
     WUI_Dialog.create("demo_left_dialog", {    
         title: "Widgets events output",
         width: "20%",
@@ -84,6 +110,8 @@ document.addEventListener("DOMContentLoaded", function() {
         status_bar: true,
 
         status_bar_content: '<div style="font-family: Monospace; font-size: 10px; color: lightgrey; position: absolute; margin-left: 8px;">---</div><span style="font-family: Monospace; font-size: 10px; color: lightgrey;">Status bar.</span>',
+
+        on_detach: bind_contextmenu,
 
         keep_align_when_resized: true
     });
@@ -362,13 +390,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		    ]
         });
 
-    var circular_menu_items = [
-                                    { icon: "pencil-icon",    tooltip: "first button",  on_click: circular_menu_item_click },
-                                    { icon: "undo-icon",      tooltip: "second button", on_click: circular_menu_item_click },
-                                    { icon: "selection-icon", tooltip: "third button",  on_click: circular_menu_item_click },
-                                    { icon: "redo-icon",      tooltip: "fourth button", on_click: circular_menu_item_click }
-                              ];
-
     document.getElementById("circular_menu_btn").addEventListener("click", function (ev) {
         ev.preventDefault();
         ev.stopPropagation();
@@ -377,18 +398,6 @@ document.addEventListener("DOMContentLoaded", function() {
                                     element: ev.target,
 
 									ry: 32
-                                }, circular_menu_items);
-    });
-
-    document.addEventListener("contextmenu", function (ev) {
-        ev.preventDefault();
-
-        WUI_CircularMenu.create({
-                                    x: ev.pageX,
-                                    y: ev.pageY,
-
-                                    rx: 34,
-                                    ry: 34
                                 }, circular_menu_items);
     });
 });
