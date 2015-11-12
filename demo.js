@@ -2,6 +2,33 @@
 /* jshint globalstrict: false */
 /* global WUI_ToolBar, WUI_DropDown, WUI_RangeSlider, WUI_Tabs, WUI_Dialog, WUI_CircularMenu */
 
+// those two functions are just used to switch between bright and dark theme, found here http://www.javascriptkit.com/javatutors/loadjavascriptcss2.shtml
+function removejscssfile(filename, filetype){
+    var targetelement=(filetype=="js")? "script" : (filetype=="css")? "link" : "none";
+    var targetattr=(filetype=="js")? "src" : (filetype=="css")? "href" : "none";
+    var allsuspects=document.getElementsByTagName(targetelement);
+    for (var i=allsuspects.length; i>=0; i--) {
+    	if (allsuspects[i] && allsuspects[i].getAttribute(targetattr)!=null && allsuspects[i].getAttribute(targetattr).indexOf(filename)!=-1)
+        	allsuspects[i].parentNode.removeChild(allsuspects[i]);
+    }
+}
+
+function createjscssfile(filename, filetype){
+    if (filetype=="js") {
+        var fileref=document.createElement('script');
+        fileref.setAttribute("type","text/javascript");
+        fileref.setAttribute("src", filename);
+    }
+    else if (filetype=="css") {
+        var fileref=document.createElement("link");
+        fileref.setAttribute("rel", "stylesheet");
+        fileref.setAttribute("type", "text/css");
+        fileref.setAttribute("href", filename);
+    }
+    document.head.appendChild(fileref);
+    return fileref
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     "use strict";
     
@@ -33,6 +60,18 @@ document.addEventListener("DOMContentLoaded", function() {
     
     var toolbar_item_toggle = function (wui_toolbar_event) {
         log_output("Toolbar item toggled, type: " + wui_toolbar_event.type + ", state: " + wui_toolbar_event.state);
+    };
+    
+    var toolbar_item_theme_toggle = function (wui_toolbar_event) {
+        log_output("Toolbar item toggled, type: " + wui_toolbar_event.type + ", state: " + wui_toolbar_event.state);
+        
+        if (wui_toolbar_event.id === 2) {
+        	removejscssfile("wui/bright/wui.min.css", "css");
+        	createjscssfile("wui/dark/wui.min.css", "css");
+        } else if (wui_toolbar_event.id === 3) {
+        	removejscssfile("wui/dark/wui.min.css", "css");
+        	createjscssfile("wui/bright/wui.min.css", "css");
+        }
     };
     
     var toolbar_item_click = function () {
@@ -353,8 +392,8 @@ document.addEventListener("DOMContentLoaded", function() {
 		    ],
 		    text_group: [
 		        { text: "Textual", on_click: toolbar_item_click, tooltip: "Click me!" },
-		        { text: "Toolbar", type: "toggle", on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
-		        { text: "Group", type: "toggle", on_click: toolbar_item_toggle, tooltip: "Toggle me!" }
+		        { text: "Dark theme", type: "toggle", toggle_state: true, on_click: toolbar_item_theme_toggle, toggle_group: 0, tooltip: "Toggle me!" },
+		        { text: "Bright theme", type: "toggle", on_click: toolbar_item_theme_toggle, toggle_group: 0, tooltip: "Toggle me!" }
 		    ]
         });
     
