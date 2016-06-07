@@ -249,6 +249,13 @@ document.addEventListener("DOMContentLoaded", function() {
             
         title_min_width: 175,
         value_min_width: 48,
+        
+        configurable: {
+        	min:  { min: -360, max: 360 },
+        	max:  { min: -360, max: 360 },
+        	step: {},
+        	scroll_step: {}
+        },
             
         on_change: slider_change
     });
@@ -285,10 +292,17 @@ document.addEventListener("DOMContentLoaded", function() {
             
         title_on_top: true,
         
-        title: "Top title, long middle slider and value at the bottom",
+        title: "Top title, middle slider, bottom value, configurable",
             
         title_min_width: 150,
         value_min_width: 48,
+        
+        configurable: {
+        	min:  { min: -64, max: 64 },
+        	max:  { min: -64, max: 64 },
+        	step: {},
+        	scroll_step: {}
+        },
             
         on_change: slider_change
     });
@@ -309,6 +323,13 @@ document.addEventListener("DOMContentLoaded", function() {
         title: "Vertical slider",
         
         title_min_width: 100,
+        
+        configurable: {
+        	min:  { min: -360, max: 360 },
+        	max:  { min: -360, max: 360 },
+        	step: {},
+        	scroll_step: {}
+        },
             
         on_change: slider_change
     });
