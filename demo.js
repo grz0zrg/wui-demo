@@ -113,16 +113,18 @@ document.addEventListener("DOMContentLoaded", function() {
     bind_contextmenu(window);
     
     // setup Web MIDI so we can control some sliders with MIDI controllers
-    navigator.requestMIDIAccess().then(
-            function (m) {
-                m.inputs.forEach(
-                    function (midi_input) {
-                        midi_input.onmidimessage = function (midi_message) {
-                            WUI_RangeSlider.submitMIDIMessage(midi_message);
-                        };
-                    }
-                );
-        });
+    if (navigator.requestMIDIAccess) {
+        navigator.requestMIDIAccess().then(
+                function (m) {
+                    m.inputs.forEach(
+                        function (midi_input) {
+                            midi_input.onmidimessage = function (midi_message) {
+                                WUI_RangeSlider.submitMIDIMessage(midi_message);
+                            };
+                        }
+                    );
+            });
+    }
 
     WUI_Dialog.create("demo_left_dialog", {    
         title: "Widgets events output",
