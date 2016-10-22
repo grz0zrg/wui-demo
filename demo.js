@@ -111,6 +111,18 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     bind_contextmenu(window);
+    
+    // setup Web MIDI so we can control some sliders with MIDI controllers
+    navigator.requestMIDIAccess().then(
+            function (m) {
+                m.inputs.forEach(
+                    function (midi_input) {
+                        midi_input.onmidimessage = function (midi_message) {
+                            WUI_RangeSlider.submitMIDIMessage(midi_message);
+                        };
+                    }
+                );
+        });
 
     WUI_Dialog.create("demo_left_dialog", {    
         title: "Widgets events output",
@@ -234,6 +246,53 @@ document.addEventListener("DOMContentLoaded", function() {
         ["First item", "Second item", "Third item"]
     );
     
+    WUI_Input.create("demo_input", {
+        width: 90,
+        height: 8,
+            
+        step: 1,
+        
+        bar: false,
+        
+        midi: {
+                type: "rel"
+            },
+        
+        default_value: 0,
+            
+        title: "Rel. MIDI Input (infinite)",
+            
+        title_min_width: 175,
+        value_min_width: 48,
+            
+        on_change: slider_change
+    });
+    
+    WUI_Input.create("demo_input_min_max", {
+        width: 100,
+        height: 8,
+            
+        min: 0,
+        max: 360,
+            
+        step: 1,
+        
+        bar: false,
+        
+        midi: true,
+        
+        default_value: 0,
+        
+        title_on_top: true,
+            
+        title: "Abs. MIDI Input (0 : 360)",
+            
+        title_min_width: 175,
+        value_min_width: 48,
+            
+        on_change: slider_change
+    });
+    
     WUI_RangeSlider.create("demo_slider", {
         width: 148,
         height: 8,
@@ -256,6 +315,50 @@ document.addEventListener("DOMContentLoaded", function() {
         	step: {},
         	scroll_step: {}
         },
+            
+        on_change: slider_change
+    });
+    
+    WUI_RangeSlider.create("demo_midi_slider", {
+        width: 148,
+        height: 8,
+            
+        min: 0,
+        max: 360,
+            
+        step: 1,
+        
+        midi: true,
+        
+        default_value: 0,
+            
+        title: "MIDI slider (0 : 360)",
+            
+        title_min_width: 175,
+        value_min_width: 48,
+            
+        on_change: slider_change
+    });
+    
+    WUI_RangeSlider.create("demo_midi_rel_slider", {
+        width: 148,
+        height: 8,
+            
+        min: 0,
+        max: 360,
+            
+        step: 1,
+        
+        midi: {
+                type: "rel"
+            },
+        
+        default_value: 0,
+            
+        title: "Rel. MIDI slider (0 : 360)",
+            
+        title_min_width: 175,
+        value_min_width: 48,
             
         on_change: slider_change
     });
