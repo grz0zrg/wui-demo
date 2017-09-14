@@ -31,25 +31,25 @@ function createjscssfile(filename, filetype){
 
 document.addEventListener("DOMContentLoaded", function() {
     "use strict";
-    
+
     var log_output = function (text) {
         var demo_widget_output = document.getElementById("demo_widget_output"),
-        
+
             output_node = document.createElement("div");
-        
+
         output_node.innerHTML = text;
-        
+
         demo_widget_output.appendChild(output_node);
-        
+
         demo_widget_output.scrollTop = demo_widget_output.scrollHeight;
     };
-    
+
     var tab_clicked = function (tab_id) {
         log_output("You clicked the tab " + tab_id);
 
         WUI_Dialog.setStatusBarContent("demo_centered_dialog", "You clicked the tab " + tab_id);
     };
-    
+
     var circular_menu_item_click = function () {
     	log_output("Circular menu item clicked!");
     };
@@ -57,14 +57,14 @@ document.addEventListener("DOMContentLoaded", function() {
     var slider_change = function (value) {
         log_output("Slider value change: " + value);
     };
-    
+
     var toolbar_item_toggle = function (wui_toolbar_event) {
         log_output("Toolbar item toggled, type: " + wui_toolbar_event.type + ", state: " + wui_toolbar_event.state);
     };
-    
+
     var toolbar_item_theme_toggle = function (wui_toolbar_event) {
         log_output("Toolbar item toggled, type: " + wui_toolbar_event.type + ", state: " + wui_toolbar_event.state);
-        
+
         if (wui_toolbar_event.id === 2) {
         	removejscssfile("wui/bright/wui.min.css", "css");
         	createjscssfile("wui/dark/wui.min.css", "css");
@@ -73,11 +73,11 @@ document.addEventListener("DOMContentLoaded", function() {
         	createjscssfile("wui/bright/wui.min.css", "css");
         }
     };
-    
+
     var toolbar_item_click = function () {
         log_output("Toolbar item clicked!");
     };
-    
+
     var toolbar_dd_item_click = function () {
     	log_output("Toolbar dropdown item clicked!");
     };
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var dropdown_item_selected = function (item_index) {
         log_output("Dropdown item " + item_index + " selected");
     };
-    
+
     var circular_menu_items = [
         { icon: "pencil-icon",    tooltip: "first button",  on_click: circular_menu_item_click },
         { icon: "undo-icon",      tooltip: "second button", on_click: circular_menu_item_click },
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     bind_contextmenu(window);
-    
+
     // setup Web MIDI so we can control some sliders with MIDI controllers
     if (navigator.requestMIDIAccess) {
         navigator.requestMIDIAccess().then(
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     }
 
-    WUI_Dialog.create("demo_left_dialog", {    
+    WUI_Dialog.create("demo_left_dialog", {
         title: "Widgets events output",
         width: "20%",
         height: "50%",
@@ -138,8 +138,8 @@ document.addEventListener("DOMContentLoaded", function() {
         resizable: true,
         status_bar: true
     });
-    
-    WUI_Dialog.create("demo_right_dialog", {    
+
+    WUI_Dialog.create("demo_right_dialog", {
         title: "halign: \"right\"",
         width: "20%",
         height: "25%",
@@ -149,8 +149,8 @@ document.addEventListener("DOMContentLoaded", function() {
         draggable: true,
         minimizable: true
     });
-    
-    var demo_centered_dialog = WUI_Dialog.create("demo_centered_dialog", {    
+
+    var demo_centered_dialog = WUI_Dialog.create("demo_centered_dialog", {
         title: "<span style=\"color: gold;\">Drag me around or resize me!</div>",
         width: "500px",
         height: "525px",
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         keep_align_when_resized: true
     });
-    
+
     var demo_modal_dialog = WUI_Dialog.create("demo_modal_dialog", {
         title: "Modal dialog!",
         width: "400px",
@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function() {
         open: false
     });
 
-    WUI_Dialog.create("demo_bottom_dialog", {    
+    WUI_Dialog.create("demo_bottom_dialog", {
         title: "closable: false, draggable: false, minimizable: false",
         width: "50%",
         height: "15%",
@@ -192,8 +192,8 @@ document.addEventListener("DOMContentLoaded", function() {
         valign: "bottom",
         closable: false
     });
-    
-    WUI_Dialog.create("demo_integrated_dialog", {    
+
+    WUI_Dialog.create("demo_integrated_dialog", {
         title: "WUI widgets demo page",
         closable: false,
         minimizable: true,
@@ -201,8 +201,8 @@ document.addEventListener("DOMContentLoaded", function() {
         height: "280px",
         top: 16
     });
-    
-    WUI_Dialog.create("demo_integrated_dialog_2", {    
+
+    WUI_Dialog.create("demo_integrated_dialog_2", {
         title: "Drag me around!",
         closable: false,
         minimizable: true,
@@ -211,11 +211,11 @@ document.addEventListener("DOMContentLoaded", function() {
         top: 32,
         draggable: true
     });
-    
+
     WUI_Tabs.create("demo_tabs", {
         on_tab_click: tab_clicked
     });
-    
+
     WUI_DropDown.create( "demo_horizontal_dropdown", {
             width: "100px",
 
@@ -231,7 +231,7 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         ["First item", "Second item", "Third item"]
     );
-    
+
     WUI_DropDown.create( "demo_vertical_dropdown", {
             width: "auto",
 
@@ -247,198 +247,200 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         ["First item", "Second item", "Third item"]
     );
-    
+
     WUI_Input.create("demo_input", {
         width: 90,
         height: 8,
-            
+
         step: 1,
-        
+
         bar: false,
-        
+
         midi: {
                 type: "rel"
             },
-        
+
         default_value: 0,
-            
+
         title: "Rel. MIDI Input (infinite)",
-            
+
         title_min_width: 175,
         value_min_width: 48,
-            
+
         on_change: slider_change
     });
-    
+
     WUI_Input.create("demo_input_min_max", {
         width: 100,
         height: 8,
-            
-        min: 0,
-        max: 360,
-            
-        step: 1,
-        
+
+        min: -1.0,
+        max: 1.0,
+
+        step: 0.01,
+
+        decimals: 2,
+
         bar: false,
-        
+
         midi: true,
-        
+
         default_value: 0,
-        
+
         title_on_top: true,
-            
+
         title: "Abs. MIDI Input (0 : 360)",
-            
+
         title_min_width: 175,
         value_min_width: 48,
-            
+
         on_change: slider_change
     });
-    
+
     WUI_RangeSlider.create("demo_slider", {
         width: 148,
         height: 8,
-            
+
         min: 0,
         max: 360,
-            
+
         step: 1,
-        
+
         default_value: 0,
-            
+
         title: "Classic slider (0 : 360)",
-            
+
         title_min_width: 175,
         value_min_width: 48,
-        
+
         configurable: {
         	min:  { min: -360, max: 360 },
         	max:  { min: -360, max: 360 },
         	step: {},
         	scroll_step: {}
         },
-            
+
         on_change: slider_change
     });
-    
+
     WUI_RangeSlider.create("demo_midi_slider", {
         width: 148,
         height: 8,
-            
+
         min: 0,
         max: 360,
-            
+
         step: 1,
-        
+
         midi: true,
-        
+
         default_value: 0,
-            
+
         title: "MIDI slider (0 : 360)",
-            
+
         title_min_width: 175,
         value_min_width: 48,
-            
+
         on_change: slider_change
     });
-    
+
     WUI_RangeSlider.create("demo_midi_rel_slider", {
         width: 148,
         height: 8,
-            
+
         min: 0,
         max: 360,
-            
+
         step: 1,
-        
+
         midi: {
                 type: "rel"
             },
-        
+
         default_value: 0,
-            
+
         title: "Rel. MIDI slider (0 : 360)",
-            
+
         title_min_width: 175,
         value_min_width: 48,
-            
+
         on_change: slider_change
     });
 
     WUI_RangeSlider.create("demo_slider_negative", {
         width: 148,
         height: 8,
-            
+
         min: -32,
         max: 32,
-            
+
         step: 0.5,
-            
+
         default_value: 0,
-            
+
         title: "Negative (-32 : +32)",
-            
+
         title_min_width: 175,
         value_min_width: 48,
-            
+
         on_change: slider_change
     });
-    
+
     WUI_RangeSlider.create("demo_slider_top_text", {
         width: 300,
         height: 8,
-            
+
         min: 0,
         max: 64,
-            
+
         step: 1,
-        
+
         default_value: 32,
-            
+
         title_on_top: true,
-        
+
         title: "Top title, middle slider, bottom value, configurable",
-            
+
         title_min_width: 150,
         value_min_width: 48,
-        
+
         configurable: {
         	min:  { min: -64, max: 64 },
         	max:  { min: -64, max: 64 },
         	step: {},
         	scroll_step: {}
         },
-            
+
         on_change: slider_change
     });
-    
+
     WUI_RangeSlider.create("demo_vertical_slider", {
         width: 8,
         height: 130,
-            
+
         min: 0,
         max: 360,
-            
+
         step: 1,
-        
+
         vertical: true,
-            
+
         default_value: 0,
-            
+
         title: "Vertical slider",
-        
+
         title_min_width: 100,
-        
+
         configurable: {
         	min:  { min: -360, max: 360 },
         	max:  { min: -360, max: 360 },
         	step: {},
         	scroll_step: {}
         },
-            
+
         on_change: slider_change
     });
-    
+
     WUI_ToolBar.create( "demo_integrated_toolbar",
 		{
 				allow_groups_minimize: true,
@@ -471,7 +473,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		        { text: "Toggle button", type: "toggle", on_click: toolbar_item_toggle, tooltip: "Toggle me!" }
 		    ]
         });
-    
+
     WUI_ToolBar.create( "demo_top_toolbar",
 		{
 		        allow_groups_minimize: true,
@@ -522,7 +524,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		        { text: "Bright theme", type: "toggle", on_click: toolbar_item_theme_toggle, toggle_group: 0, tooltip: "Toggle me!" }
 		    ]
         });
-    
+
     WUI_ToolBar.create( "demo_vertical_toolbar",
 		{
 		        icon_width: 32,
@@ -541,7 +543,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		        { icon: "redo-icon", on_click: toolbar_item_click, tooltip: "Click me!" }
 		    ]
         });
-    
+
     WUI_ToolBar.create( "demo_simple_toolbar",
 		{
         	item_width: 250,
