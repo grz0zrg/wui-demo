@@ -445,11 +445,11 @@ document.addEventListener("DOMContentLoaded", function() {
 		{
 				allow_groups_minimize: true,
 
-		        item_width: 38,
-		        item_height: 32,
+		    item_width: 38,
+		    item_height: 32,
 
-		        icon_width: 32,
-		        icon_height: 32
+		    icon_width: 32,
+		    icon_height: 32
 		},
     	{
 		    first_group:    [
@@ -476,21 +476,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
     WUI_ToolBar.create( "demo_top_toolbar",
 		{
-		        allow_groups_minimize: true,
-		        icon_width: 32,
-		        icon_height: 32
+		    allow_groups_minimize: true,
+        show_groups_title: true,
+		    icon_width: 32,
+		    icon_height: 32
 		},
     	{
-		    first_group:    [
+		    "Tools":    [
 		        { icon: "pencil-icon", type: "toggle", toggle_group: 0, toggle_state: true, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
 		        { icon: "selection-icon", type: "toggle", toggle_group: 0, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
 		        { icon: "grid-icon", type: "toggle", toggle_group: 0, on_click: toolbar_item_toggle, tooltip: "Toggle me!" }
 		    ],
-		    second_group:    [
+		    "Undo/Redo":    [
 		        { icon: "undo-icon", on_click: toolbar_item_click, tooltip: "Click me!" },
 		        { icon: "redo-icon", on_click: toolbar_item_click, tooltip: "Click me!" }
 		    ],
-		    third_group:    [
+		    "Transport":    [
 		        { icon: "back-icon", on_click: toolbar_item_click, tooltip: "Click me!" },
 		        { icon: "forw-icon", on_click: toolbar_item_click, tooltip: "Click me!" },
 		        { icon: "play-icon", type: "toggle", on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
@@ -500,11 +501,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     WUI_ToolBar.create( "demo_text_toolbar",
 		{
-		        item_width: 38,
-		        item_height: 32,
+        item_width: 38,
+        item_height: 32,
 
-		        icon_width: 32,
-		        icon_height: 32
+        icon_width: 32,
+        icon_height: 32
 		},
     	{
 		    icons_group: [
@@ -527,10 +528,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     WUI_ToolBar.create( "demo_vertical_toolbar",
 		{
-		        icon_width: 32,
-		        icon_height: 32,
-		        vertical: true,
-		        allow_groups_minimize: true
+        icon_width: 32,
+        icon_height: 32,
+        vertical: true,
+        allow_groups_minimize: true
 		},
     	{
 		    first_group:    [
