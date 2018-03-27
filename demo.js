@@ -26,7 +26,7 @@ function createjscssfile(filename, filetype){
         fileref.setAttribute("href", filename);
     }
     document.head.appendChild(fileref);
-    return fileref
+    return fileref;
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -444,6 +444,7 @@ document.addEventListener("DOMContentLoaded", function() {
     WUI_ToolBar.create( "demo_integrated_toolbar",
 		{
 				allow_groups_minimize: true,
+        show_groups_title: true,
 
 		    item_width: 38,
 		    item_height: 32,
