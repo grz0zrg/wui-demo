@@ -9,20 +9,20 @@
 
         <!-- WUI -->
         <link rel="stylesheet" type="text/css" href="wui/dark/wui.min.css"/>
-        
+
         <script type="text/javascript" src="wui/wui.min.js" defer></script>
-        
+
         <!-- Demo -->
         <link rel="stylesheet" type="text/css" href="icons.css"/>
-        
+
         <script type="text/javascript" src="demo.js" defer></script>
     </head>
-    
+
     <body style="background-color: lightslategrey; font-size: 11pt; margin: 0; overflow: hidden; width: 100%; height: 100%; color: lightgrey;">
         <div id="demo_vertical_toolbar" style="position: absolute; right: 0; margin-right: 6px;"></div>
         <div id="demo_text_toolbar" style="position: absolute; right: 0; bottom: 0; margin-right: 6px; margin-bottom: 2px;"></div>
         <div id="demo_top_toolbar"></div>
-        
+
         <div id="demo_modal_dialog"><div style="padding-top: 8px; color: white;">Content...</div></div>
 
         <div id="demo_centered_dialog">
@@ -33,8 +33,9 @@
                     <div>Input</div>
                     <div>Range slider</div>
                     <div>ToolBar</div>
+                    <div>Forms</div>
                 </div>
-                
+
                 <div>
                     <div>
                         <div id="demo_integrated_dialog" style="position: relative;">
@@ -45,12 +46,12 @@
                             <a href="https://github.com/grz0zrg/wui"><span style="font-size: 12pt; color: gold;">https://github.com/grz0zrg/wui</span></a>
                             </div>
                         </div>
-                        
+
                         <div id="demo_integrated_dialog_2" style="position: relative;">
                             <div style="text-align: center; padding-top: 24px; font-size: 8pt;"><div id="circular_menu_btn" style="padding: 4px; margin: 0 auto; width: 100px; background-color: #200020;">Click (circular menu)</div></div>
                         </div>
                     </div>
-                    
+
                     <div style="text-align: center;">
                         <div style="padding-top: 16px;">
                             Horizontal / Vertical dropdown (auto-open and auto-hide)
@@ -59,7 +60,7 @@
                             <div id="demo_vertical_dropdown"></div>
                         </div>
                     </div>
-                    
+
                     <div style="margin: 0 auto;  text-align: center;">
                         <div style="padding-top: 16px; font-size: 10pt;">
                             Inputs are basically sliders without a bar.
@@ -67,7 +68,7 @@
                             <div id="demo_input_min_max" style="width: 400px; margin: 8px auto;"></div>
                         </div>
                     </div>
-                    
+
                     <div style="margin: 0 auto;  text-align: center;">
                         <div style="padding-top: 16px; font-size: 10pt;">
                             Try the mouse wheel on any bars/hooks!
@@ -83,22 +84,26 @@
                     </div>
 
                     <div>
-                    	<div id="demo_integrated_toolbar" style="font-size: 7pt; padding-top: 32px;"></div>
+                        <div id="demo_integrated_toolbar" style="font-size: 7pt; padding-top: 32px;"></div>
+                    </div>
+
+                    <div>
+                        <div id="demo_form"></div>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <div id="demo_bottom_dialog">
             <div style="color: cadetblue; text-align: center; line-height: 64px;">
                 Can act as a cheap panel. :)
             </div>
         </div>
-        
+
         <div id="demo_left_dialog">
             <div id="demo_widget_output" style="color: yellow; font-size: 9pt; text-align: center; overflow: auto; line-height: 14pt;"></div>
         </div>
-        
+
         <div id="demo_right_dialog">
             <div>
                 <div id="demo_simple_toolbar"  style="font-size: 7pt; padding-top: 32px;"></div>

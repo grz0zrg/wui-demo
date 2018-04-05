@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     var demo_centered_dialog = WUI_Dialog.create("demo_centered_dialog", {
         title: "<span style=\"color: gold;\">Drag me around or resize me!</div>",
-        width: "500px",
+        width: "600px",
         height: "525px",
         halign: "center",
         valign: "center",
@@ -442,131 +442,154 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     WUI_ToolBar.create( "demo_integrated_toolbar",
-		{
-				allow_groups_minimize: true,
-        show_groups_title: true,
+  {
+  allow_groups_minimize: true,
 
-		    item_width: 38,
-		    item_height: 32,
+      item_width: 38,
+      item_height: 32,
 
-		    icon_width: 32,
-		    icon_height: 32
-		},
+      icon_width: 32,
+      icon_height: 32
+  },
     	{
-		    first_group:    [
-		        { icon: "pencil-icon", type: "toggle", toggle_group: 0, toggle_state: true, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
-		        { icon: "selection-icon", type: "toggle", toggle_group: 0, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
-		        { icon: "grid-icon", type: "toggle", toggle_group: 0, on_click: toolbar_item_toggle, tooltip: "Toggle me!" }
-		    ],
-		    icons_group: [
-		        {
-		        	icon: "pencil-icon",
-		        	text: "Menu",
-		        	type: "dropdown",
-		        	items: [
-		   				{ title: "First item",  on_click: toolbar_dd_item_click },
-		   				{ title: "Second item", on_click: toolbar_dd_item_click },
-		   				{ title: "Third item",  on_click: toolbar_dd_item_click }],
-		   			tooltip: "Click me!" }
-		    ],
-		    text_group: [
-		        { text: "Button", on_click: toolbar_item_click, tooltip: "Click me!" },
-		        { text: "Toggle button", type: "toggle", on_click: toolbar_item_toggle, tooltip: "Toggle me!" }
-		    ]
+      first_group:    [
+          { icon: "pencil-icon", type: "toggle", toggle_group: 0, toggle_state: true, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
+          { icon: "selection-icon", type: "toggle", toggle_group: 0, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
+          { icon: "grid-icon", type: "toggle", toggle_group: 0, on_click: toolbar_item_toggle, tooltip: "Toggle me!" }
+      ],
+      icons_group: [
+          {
+          	icon: "pencil-icon",
+          	text: "Menu",
+          	type: "dropdown",
+          	items: [
+     				{ title: "First item",  on_click: toolbar_dd_item_click },
+     				{ title: "Second item", on_click: toolbar_dd_item_click },
+     				{ title: "Third item",  on_click: toolbar_dd_item_click }],
+     			tooltip: "Click me!" }
+      ],
+      text_group: [
+          { text: "Button", on_click: toolbar_item_click, tooltip: "Click me!" },
+          { text: "Toggle button", type: "toggle", on_click: toolbar_item_toggle, tooltip: "Toggle me!" }
+      ]
         });
 
     WUI_ToolBar.create( "demo_top_toolbar",
-		{
-		    allow_groups_minimize: true,
+  {
+      allow_groups_minimize: true,
         show_groups_title: true,
-		    icon_width: 32,
-		    icon_height: 32
-		},
+      icon_width: 32,
+      icon_height: 32
+  },
     	{
-		    "Tools":    [
-		        { icon: "pencil-icon", type: "toggle", toggle_group: 0, toggle_state: true, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
-		        { icon: "selection-icon", type: "toggle", toggle_group: 0, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
-		        { icon: "grid-icon", type: "toggle", toggle_group: 0, on_click: toolbar_item_toggle, tooltip: "Toggle me!" }
-		    ],
-		    "Undo/Redo":    [
-		        { icon: "undo-icon", on_click: toolbar_item_click, tooltip: "Click me!" },
-		        { icon: "redo-icon", on_click: toolbar_item_click, tooltip: "Click me!" }
-		    ],
-		    "Transport":    [
-		        { icon: "back-icon", on_click: toolbar_item_click, tooltip: "Click me!" },
-		        { icon: "forw-icon", on_click: toolbar_item_click, tooltip: "Click me!" },
-		        { icon: "play-icon", type: "toggle", on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
-		        { icon: "record-icon", type: "toggle", on_click: toolbar_item_toggle, tooltip: "Toggle me!" }
-		    ]
+      "Tools":    [
+          { icon: "pencil-icon", type: "toggle", toggle_group: 0, toggle_state: true, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
+          { icon: "selection-icon", type: "toggle", toggle_group: 0, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
+          { icon: "grid-icon", type: "toggle", toggle_group: 0, on_click: toolbar_item_toggle, tooltip: "Toggle me!" }
+      ],
+      "Undo/Redo":    [
+          { icon: "undo-icon", on_click: toolbar_item_click, tooltip: "Click me!" },
+          { icon: "redo-icon", on_click: toolbar_item_click, tooltip: "Click me!" }
+      ],
+      "Transport":    [
+          { icon: "back-icon", on_click: toolbar_item_click, tooltip: "Click me!" },
+          { icon: "forw-icon", on_click: toolbar_item_click, tooltip: "Click me!" },
+          { icon: "play-icon", type: "toggle", on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
+          { icon: "record-icon", type: "toggle", on_click: toolbar_item_toggle, tooltip: "Toggle me!" }
+      ]
         });
 
     WUI_ToolBar.create( "demo_text_toolbar",
-		{
+  {
         item_width: 38,
         item_height: 32,
 
         icon_width: 32,
         icon_height: 32
-		},
+  },
     	{
-		    icons_group: [
-		        {
-		        	icon: "pencil-icon",
-		        	text: "Menu",
-		        	type: "dropdown",
-		        	items: [
-		   				{ title: "First item",  on_click: toolbar_dd_item_click },
-		   				{ title: "Second item", on_click: toolbar_dd_item_click },
-		   				{ title: "Third item",  on_click: toolbar_dd_item_click }],
-		   			tooltip: "Click me!" }
-		    ],
-		    text_group: [
-		        { text: "Textual", on_click: toolbar_item_click, tooltip: "Click me!" },
-		        { text: "Dark theme", type: "toggle", toggle_state: true, on_click: toolbar_item_theme_toggle, toggle_group: 0, tooltip: "Toggle me!" },
-		        { text: "Bright theme", type: "toggle", on_click: toolbar_item_theme_toggle, toggle_group: 0, tooltip: "Toggle me!" }
-		    ]
+      icons_group: [
+          {
+          	icon: "pencil-icon",
+          	text: "Menu",
+          	type: "dropdown",
+          	items: [
+     				{ title: "First item",  on_click: toolbar_dd_item_click },
+     				{ title: "Second item", on_click: toolbar_dd_item_click },
+     				{ title: "Third item",  on_click: toolbar_dd_item_click }],
+     			tooltip: "Click me!" }
+      ],
+      text_group: [
+          { text: "Textual", on_click: toolbar_item_click, tooltip: "Click me!" },
+          { text: "Dark theme", type: "toggle", toggle_state: true, on_click: toolbar_item_theme_toggle, toggle_group: 0, tooltip: "Toggle me!" },
+          { text: "Bright theme", type: "toggle", on_click: toolbar_item_theme_toggle, toggle_group: 0, tooltip: "Toggle me!" }
+      ]
         });
 
     WUI_ToolBar.create( "demo_vertical_toolbar",
-		{
+  {
         icon_width: 32,
         icon_height: 32,
         vertical: true,
+        show_groups_title: true,
+        groups_title_orientation: 'n',
         allow_groups_minimize: true
-		},
+  },
     	{
-		    first_group:    [
-		        { icon: "pencil-icon", type: "toggle", toggle_group: 0, toggle_state: true, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
-		        { icon: "selection-icon", type: "toggle", toggle_group: 0, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
-		        { icon: "grid-icon", type: "toggle", toggle_group: 0, on_click: toolbar_item_toggle, tooltip: "Toggle me!" }
-		    ],
-		    second_group:    [
-		        { icon: "undo-icon", on_click: toolbar_item_click, tooltip: "Click me!" },
-		        { icon: "redo-icon", on_click: toolbar_item_click, tooltip: "Click me!" }
-		    ]
+      "Tools":    [
+          { icon: "pencil-icon", type: "toggle", toggle_group: 0, toggle_state: true, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
+          { icon: "selection-icon", type: "toggle", toggle_group: 0, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
+          { icon: "grid-icon", type: "toggle", toggle_group: 0, on_click: toolbar_item_toggle, tooltip: "Toggle me!" }
+      ],
+      "Undo/Redo":    [
+          { icon: "undo-icon", on_click: toolbar_item_click, tooltip: "Click me!" },
+          { icon: "redo-icon", on_click: toolbar_item_click, tooltip: "Click me!" }
+      ]
         });
 
     WUI_ToolBar.create( "demo_simple_toolbar",
-		{
+    {
         	item_width: 250,
 
         	vertical: true
         },
     	{
         	first_group:    [
-		        { text: "Open center dialog (if closed)", on_click: function () { WUI_Dialog.open(demo_centered_dialog); }, tooltip: "Reopen dialog!" },
-		        { text: "Open a modal dialog", on_click: function () { WUI_Dialog.open(demo_modal_dialog); }, tooltip: "Open a modal dialog" }
-		    ]
+          { text: "Open center dialog (if closed)", on_click: function () { WUI_Dialog.open(demo_centered_dialog); }, tooltip: "Reopen dialog!" },
+          { text: "Open a modal dialog", on_click: function () { WUI_Dialog.open(demo_modal_dialog); }, tooltip: "Open a modal dialog" }
+      ]
         });
+
+    WUI_Form.create("demo_form", {},
+    {
+        "Form : First group": [
+          {
+            type: "WUI_DropDown",
+            opts: {
+                    width: "100px",
+
+                    vspacing: 4,
+
+                    ms_before_hiding: 1000,
+
+                    selected_id: 0,
+
+                    vertical: false,
+
+                    on_item_selected: dropdown_item_selected
+                },
+            items: ["First item", "Second item", "Third item"]
+          }
+        ]
+    });
 
     document.getElementById("circular_menu_btn").addEventListener("click", function (ev) {
         ev.preventDefault();
         ev.stopPropagation();
 
         WUI_CircularMenu.create({
-                                    element: ev.target,
-
-									ry: 32
+            element: ev.target,
+                                    ry: 32
                                 }, circular_menu_items);
     });
 });
