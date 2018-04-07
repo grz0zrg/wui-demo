@@ -8,8 +8,8 @@ function removejscssfile(filename, filetype){
     var targetattr=(filetype=="js")? "src" : (filetype=="css")? "href" : "none";
     var allsuspects=document.getElementsByTagName(targetelement);
     for (var i=allsuspects.length; i>=0; i--) {
-    	if (allsuspects[i] && allsuspects[i].getAttribute(targetattr)!=null && allsuspects[i].getAttribute(targetattr).indexOf(filename)!=-1)
-        	allsuspects[i].parentNode.removeChild(allsuspects[i]);
+      if (allsuspects[i] && allsuspects[i].getAttribute(targetattr)!=null && allsuspects[i].getAttribute(targetattr).indexOf(filename)!=-1)
+          allsuspects[i].parentNode.removeChild(allsuspects[i]);
     }
 }
 
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     var circular_menu_item_click = function () {
-    	log_output("Circular menu item clicked!");
+      log_output("Circular menu item clicked!");
     };
 
     var slider_change = function (value) {
@@ -66,11 +66,11 @@ document.addEventListener("DOMContentLoaded", function() {
         log_output("Toolbar item toggled, type: " + wui_toolbar_event.type + ", state: " + wui_toolbar_event.state);
 
         if (wui_toolbar_event.id === 2) {
-        	removejscssfile("wui/bright/wui.min.css", "css");
-        	createjscssfile("wui/dark/wui.min.css", "css");
+          removejscssfile("wui/bright/wui.min.css", "css");
+          createjscssfile("wui/dark/wui.min.css", "css");
         } else if (wui_toolbar_event.id === 3) {
-        	removejscssfile("wui/dark/wui.min.css", "css");
-        	createjscssfile("wui/bright/wui.min.css", "css");
+          removejscssfile("wui/dark/wui.min.css", "css");
+          createjscssfile("wui/bright/wui.min.css", "css");
         }
     };
 
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     var toolbar_dd_item_click = function () {
-    	log_output("Toolbar dropdown item clicked!");
+      log_output("Toolbar dropdown item clicked!");
     };
 
     var dropdown_item_selected = function (item_index) {
@@ -314,10 +314,10 @@ document.addEventListener("DOMContentLoaded", function() {
         value_min_width: 48,
 
         configurable: {
-        	min:  { min: -360, max: 360 },
-        	max:  { min: -360, max: 360 },
-        	step: {},
-        	scroll_step: {}
+          min:  { min: -360, max: 360 },
+          max:  { min: -360, max: 360 },
+          step: {},
+          scroll_step: {}
         },
 
         on_change: slider_change
@@ -405,10 +405,10 @@ document.addEventListener("DOMContentLoaded", function() {
         value_min_width: 48,
 
         configurable: {
-        	min:  { min: -64, max: 64 },
-        	max:  { min: -64, max: 64 },
-        	step: {},
-        	scroll_step: {}
+          min:  { min: -64, max: 64 },
+          max:  { min: -64, max: 64 },
+          step: {},
+          scroll_step: {}
         },
 
         on_change: slider_change
@@ -432,10 +432,10 @@ document.addEventListener("DOMContentLoaded", function() {
         title_min_width: 100,
 
         configurable: {
-        	min:  { min: -360, max: 360 },
-        	max:  { min: -360, max: 360 },
-        	step: {},
-        	scroll_step: {}
+          min:  { min: -360, max: 360 },
+          max:  { min: -360, max: 360 },
+          step: {},
+          scroll_step: {}
         },
 
         on_change: slider_change
@@ -451,7 +451,7 @@ document.addEventListener("DOMContentLoaded", function() {
       icon_width: 32,
       icon_height: 32
   },
-    	{
+      {
       first_group:    [
           { icon: "pencil-icon", type: "toggle", toggle_group: 0, toggle_state: true, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
           { icon: "selection-icon", type: "toggle", toggle_group: 0, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
@@ -459,14 +459,14 @@ document.addEventListener("DOMContentLoaded", function() {
       ],
       icons_group: [
           {
-          	icon: "pencil-icon",
-          	text: "Menu",
-          	type: "dropdown",
-          	items: [
-     				{ title: "First item",  on_click: toolbar_dd_item_click },
-     				{ title: "Second item", on_click: toolbar_dd_item_click },
-     				{ title: "Third item",  on_click: toolbar_dd_item_click }],
-     			tooltip: "Click me!" }
+            icon: "pencil-icon",
+            text: "Menu",
+            type: "dropdown",
+            items: [
+             { title: "First item",  on_click: toolbar_dd_item_click },
+             { title: "Second item", on_click: toolbar_dd_item_click },
+             { title: "Third item",  on_click: toolbar_dd_item_click }],
+           tooltip: "Click me!" }
       ],
       text_group: [
           { text: "Button", on_click: toolbar_item_click, tooltip: "Click me!" },
@@ -481,7 +481,7 @@ document.addEventListener("DOMContentLoaded", function() {
       icon_width: 32,
       icon_height: 32
   },
-    	{
+      {
       "Tools":    [
           { icon: "pencil-icon", type: "toggle", toggle_group: 0, toggle_state: true, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
           { icon: "selection-icon", type: "toggle", toggle_group: 0, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
@@ -507,17 +507,17 @@ document.addEventListener("DOMContentLoaded", function() {
         icon_width: 32,
         icon_height: 32
   },
-    	{
+      {
       icons_group: [
           {
-          	icon: "pencil-icon",
-          	text: "Menu",
-          	type: "dropdown",
-          	items: [
-     				{ title: "First item",  on_click: toolbar_dd_item_click },
-     				{ title: "Second item", on_click: toolbar_dd_item_click },
-     				{ title: "Third item",  on_click: toolbar_dd_item_click }],
-     			tooltip: "Click me!" }
+            icon: "pencil-icon",
+            text: "Menu",
+            type: "dropdown",
+            items: [
+             { title: "First item",  on_click: toolbar_dd_item_click },
+             { title: "Second item", on_click: toolbar_dd_item_click },
+             { title: "Third item",  on_click: toolbar_dd_item_click }],
+           tooltip: "Click me!" }
       ],
       text_group: [
           { text: "Textual", on_click: toolbar_item_click, tooltip: "Click me!" },
@@ -535,7 +535,7 @@ document.addEventListener("DOMContentLoaded", function() {
         groups_title_orientation: 'n',
         allow_groups_minimize: true
   },
-    	{
+      {
       "Tools":    [
           { icon: "pencil-icon", type: "toggle", toggle_group: 0, toggle_state: true, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
           { icon: "selection-icon", type: "toggle", toggle_group: 0, on_click: toolbar_item_toggle, tooltip: "Toggle me!" },
@@ -549,12 +549,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     WUI_ToolBar.create( "demo_simple_toolbar",
     {
-        	item_width: 250,
+          item_width: 250,
 
-        	vertical: true
+          vertical: true
         },
-    	{
-        	first_group:    [
+      {
+          first_group:    [
           { text: "Open center dialog (if closed)", on_click: function () { WUI_Dialog.open(demo_centered_dialog); }, tooltip: "Reopen dialog!" },
           { text: "Open a modal dialog", on_click: function () { WUI_Dialog.open(demo_modal_dialog); }, tooltip: "Open a modal dialog" }
       ]
@@ -563,6 +563,110 @@ document.addEventListener("DOMContentLoaded", function() {
     WUI_Form.create("demo_form", {},
     {
         "Form : First group": [
+          {
+            type: "checkbox",
+            label: "Inline checkbox :",
+            attr: {
+                checked: "true"
+            }
+          },
+          {
+            type: "checkbox",
+            label: "2 :",
+            attr: {
+                checked: "true"
+            }
+          },
+          {
+            type: "checkbox",
+            label: "Checkbox :",
+            wrap: true,
+            attr: {
+                checked: "true"
+            }
+          },
+          {
+            type: "fieldset",
+            name: "Sub-group",
+            items: [
+              {
+                // a standard <select> with legend
+                type: "select",
+                label: "Standard &lt;select&gt; :&nbsp;",
+                wrap: true, // wrap it in a div (for line-break)
+                attr: {
+                        // you can put any DOM attributes here to apply customizations
+                },
+                value: "",
+
+                // specific datalist/select attributes
+                options: [
+                    {
+                        // required attributes
+                        name: "option1",
+                        // optional attributes
+                        label: "my label",
+                        disabled: false,
+                        selected: false,
+                        value: "option1",
+
+                        attr: {
+                            // you can put any DOM attributes here to apply customizations to the <option> element
+                        }
+                    },
+                    {
+                        name: "option2"
+                    },
+                    "option3" // also work (but not customizable)
+                ]
+              },
+              {
+                // a standard <select> with legend & groups
+                type: "select",
+                label: "Standard &lt;select&gt; + groups :&nbsp;",
+                wrap: true, // wrap it in a div (for line-break)
+
+                options: [
+                    {
+                        group: "Group 1",
+                        group_attr: {
+                            // custom attributes can be assigned to the optgroup element here
+                        },
+                        name: "option1",
+                        // optional attributes
+                        label: "my label",
+                        value: "option1"
+                    },
+                    {
+                        selected: true,
+                        name: "option2"
+                    },
+                    {
+                        group: "Group 2",
+                        name: "option3"
+                    },
+                    {
+                        name: "option4"
+                    }
+                ]
+              },
+              {
+                // a <datalist> with legend
+                type: "datalist",
+                label: "Standard &lt;datalist&gt; :&nbsp;",
+                wrap: true,
+
+                options: [
+                    {
+                        name: "option1"
+                    },
+                    {
+                        name: "option2"
+                    },
+                    "option3" // also work (but not customizable)
+                ]
+              }]
+          },
           {
             type: "WUI_DropDown",
             opts: {
@@ -579,6 +683,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     on_item_selected: dropdown_item_selected
                 },
             items: ["First item", "Second item", "Third item"]
+          }
+        ],
+        "Form : Second group": [
+          {
+            type: "checkbox",
+            label: "Inline checkbox :",
+            attr: {
+                checked: "true"
+            }
           }
         ]
     });
