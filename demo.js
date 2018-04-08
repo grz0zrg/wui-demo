@@ -86,6 +86,10 @@ document.addEventListener("DOMContentLoaded", function() {
         log_output("Dropdown item " + item_index + " selected");
     };
 
+    var form_change = function () {
+        log_output("Form item change");
+    };
+
     var circular_menu_items = [
         { icon: "pencil-icon",    tooltip: "first button",  on_click: circular_menu_item_click },
         { icon: "undo-icon",      tooltip: "second button", on_click: circular_menu_item_click },
@@ -560,34 +564,39 @@ document.addEventListener("DOMContentLoaded", function() {
       ]
         });
 
-    WUI_Form.create("demo_form", {},
+    WUI_Form.create("demo_form", {
+        on_change: form_change
+    },
     {
         "Form : First group": [
           {
-            type: "checkbox",
-            label: "Inline checkbox :",
-            attr: {
-                checked: "true"
-            }
-          },
-          {
-            type: "checkbox",
-            label: "2 :",
-            attr: {
-                checked: "true"
-            }
-          },
-          {
-            type: "checkbox",
-            label: "Checkbox :",
-            wrap: true,
-            attr: {
-                checked: "true"
-            }
-          },
+            type: "fieldset",
+            items_size: "auto",
+            items: [
+              {
+                type: "checkbox",
+                label: "Inline checkbox 1 :",
+                attr: {
+                    checked: true
+                }
+              },
+              {
+                type: "checkbox",
+                label: "2 :"
+              },
+              {
+                type: "checkbox",
+                label: "Checkbox :",
+                wrap: true
+              }]
+            },
           {
             type: "fieldset",
             name: "Sub-group",
+            width: "44%",
+            inline: true,
+            items_size: "tn", // "tn", "sm", "md" or "xl"
+            content_align: "right",
             items: [
               {
                 // a standard <select> with legend
@@ -623,7 +632,7 @@ document.addEventListener("DOMContentLoaded", function() {
               {
                 // a standard <select> with legend & groups
                 type: "select",
-                label: "Standard &lt;select&gt; + groups :&nbsp;",
+                label: "+ groups :&nbsp;",
                 wrap: true, // wrap it in a div (for line-break)
 
                 options: [
@@ -668,30 +677,108 @@ document.addEventListener("DOMContentLoaded", function() {
               }]
           },
           {
-            type: "WUI_DropDown",
-            opts: {
-                    width: "100px",
-
-                    vspacing: 4,
-
-                    ms_before_hiding: 1000,
-
-                    selected_id: 0,
-
-                    vertical: false,
-
-                    on_item_selected: dropdown_item_selected
+            type: "fieldset",
+            name: "Sub-group 2",
+            width: "44%",
+            inline: true,
+            items_size: "tn", // "sm", "md" or "xl"
+            content_align: "right",
+            items: [
+              {
+                // a standard <textarea> with legend
+                type: "textarea",
+                label: "Textarea",
+                wrap: true, // wrap it in a div (for line-break)
+                attr: {
+                    placeholder: "Some placeholder text..."
                 },
-            items: ["First item", "Second item", "Third item"]
-          }
+                value: ""
+              },
+              {
+                type: "radio",
+                group: "radio_gr",
+                label: "Option 1 :",
+                value: "radio1",
+                wrap: true,
+                attr: {
+                    checked: true
+                }
+              },
+              {
+                type: "radio",
+                label: "Option 2 :",
+                value: "radio2",
+                group: "radio_gr"
+              }
+            ]
+          },
+          {
+            type: "fieldset",
+            name: "WUI elements",
+            width: "44%",
+            items_size: "tn", // "tn", "sm", "md" or "xl"
+            items: [
+              {
+                type: "WUI_DropDown",
+                opts: {
+                        width: "100px",
+
+                        vspacing: 4,
+
+                        ms_before_hiding: 1000,
+
+                        selected_id: 0,
+
+                        vertical: false,
+
+                        on_item_selected: dropdown_item_selected
+                    },
+                items: ["First item", "Second item", "Third item"]
+              },
+              {
+                type: "WUI_RangeSlider",
+                opts: {
+                  width: 60,
+                  height: 8,
+
+                  min: -32,
+                  max: 32,
+
+                  step: 0.5,
+
+                  default_value: 0,
+
+                  title: "Slider",
+
+                  title_min_width: 40,
+                  value_min_width: 48,
+
+                  on_change: slider_change
+                }
+              }]
+            }
         ],
         "Form : Second group": [
           {
-            type: "checkbox",
-            label: "Inline checkbox :",
-            attr: {
-                checked: "true"
-            }
+            type: "fieldset",
+            items_size: "auto",
+            items: [
+              {
+                type: "radio",
+                group: "radio_group",
+                label: "Inline radio Option 1 :",
+                value: "radio1",
+                attr: {
+                    checked: true
+                }
+              },
+              {
+                type: "radio",
+                label: "Option 2 :",
+                value: "radio2",
+                group: "radio_group"
+              }
+            ]
           }
         ]
     });
