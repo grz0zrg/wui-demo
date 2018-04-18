@@ -86,8 +86,17 @@ document.addEventListener("DOMContentLoaded", function() {
         log_output("Dropdown item " + item_index + " selected");
     };
 
-    var form_change = function () {
-        log_output("Form item change");
+    var form_change = function (value, ev, obj) {
+        if (obj.name !== undefined) {
+            log_output("Form '" + obj.wid + "' item '" + obj.name + "' change to '" + obj.value + "'");
+
+            if (obj.name === "loadParamsBtn") {
+                WUI_Form.setParameters(obj.wid, WUI_Form.getParameters(obj.wid), true);
+            }
+        } else {
+            log_output("Form '" + obj.wid + "' an item changed to '" + obj.value + "'");
+            // you can find which item through "ev" DOM event object
+        }
     };
 
     var circular_menu_items = [
@@ -575,6 +584,7 @@ document.addEventListener("DOMContentLoaded", function() {
             items: [
               {
                 type: "checkbox",
+                name: "chk1",
                 label: "Inline checkbox 1 :",
                 attr: {
                     checked: true
@@ -582,6 +592,7 @@ document.addEventListener("DOMContentLoaded", function() {
               },
               {
                 type: "checkbox",
+                name: "chk2",
                 label: "2 :"
               },
               {
@@ -777,6 +788,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 label: "Option 2 :",
                 value: "radio2",
                 group: "radio_group"
+              },
+              {
+                type: "button",
+                name: "loadParamsBtn",
+                content: "Click to load parameters",
+                wrap: true
               }
             ]
           }
