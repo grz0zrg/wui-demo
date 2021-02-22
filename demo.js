@@ -287,8 +287,8 @@ document.addEventListener("DOMContentLoaded", function() {
         width: 100,
         height: 8,
 
-        min: -1.0,
-        max: 1.0,
+        min: 0.0,
+        max: 360.0,
 
         step: 0.01,
 
