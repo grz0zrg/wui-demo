@@ -283,6 +283,19 @@ document.addEventListener("DOMContentLoaded", function() {
         on_change: slider_change
     });
 
+    WUI_Input.create("demo_midi_learn", {
+        step: 1,
+
+        midi: {
+                type: "rel"
+            },
+        midi_square_only: true,
+
+        default_value: 0,
+
+        on_change: slider_change
+    });
+
     WUI_Input.create("demo_input_min_max", {
         width: 100,
         height: 8,
